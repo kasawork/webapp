@@ -16,7 +16,7 @@ def index():
                          3px 0px 0px #000, -3px -0px 0px #000,  0px 3px 0px #000, 0px -3px 0px #000;
           }
           body {
-            background-image: url('/static/kabe2.jpg');
+            background-image: url('/static/kabe1.jpg');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
