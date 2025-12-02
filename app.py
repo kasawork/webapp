@@ -7,9 +7,28 @@ app = Flask(__name__)
 def index():
     return '''
         <html>
+        <head>
+        <title>WebApp</title>
+        <style>
+          .shadow{
+            padding: 10px; color: #CCC; font-weight: bold; font-size: 30px; margin: 0;
+            text-shadow: 3px 3px 0px #000, -3px -3px 0px #000, -3px 3px 0px #000, 3px -3px 0px #000,
+                         3px 0px 0px #000, -3px -0px 0px #000,  0px 3px 0px #000, 0px -3px 0px #000;
+          }
+          body {
+            background-image: url('/static/kabe2.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+          }
+        </style>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon" href="/static/icon-192.png" />
+        </head>
         <body>
         <div style="text-align: center;">
-        <h2>TestApp</h2>
+        <h2><p class="shadow">TestApp</p></h2>
         <img src="/static/natu.jpg" width="600"><br>
         <br>
         こんにちは！これはRenderで公開されたアプリです。<br>
@@ -18,6 +37,13 @@ def index():
             <button type="submit">Run Python Script</button>
         </form>
         </div>
+        <script>
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js")
+              .then(() => console.log("Service Worker registered"))
+              .catch(console.error);
+          }
+        </script>
         </body>
         </html>
     '''
